@@ -4,6 +4,9 @@ body {
 
 header{
     border-bottom: 1px solid;
+    align-items: center;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 nav a{
@@ -13,4 +16,6 @@ nav a{
 
 main{
     padding: 20px;
+    background-color: antiquewhite;
+    text-align: center;
 }
