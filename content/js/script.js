@@ -20,7 +20,7 @@ function showWelcomeMessage() {
  let productPrice = 2200;
  let productCategory = "Tech";
  let productStock = 50;
- let IsinStock = productStock > 0;
+ let isInStock = productStock > 0;
 
 console.log(productName);
 console.log(productPrice);
