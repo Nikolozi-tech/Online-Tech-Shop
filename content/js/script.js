@@ -51,11 +51,11 @@ function showProductDetails(name,price,stock){
     console.log("Product Stock:" + stock);
 }
 
-showProductDetails("Macbook",2200,50);
+showProductDetails(productName,productPrice,productStock);
 
 function calculateTotalPrice(price, quantity) {
     let total = price * quantity;
     console.log("Total Price: " + total);
 }
 
-calculateTotalPrice(2200, 2);
+calculateTotalPrice(productPrice, productStock);
