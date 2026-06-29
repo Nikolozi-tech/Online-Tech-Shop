@@ -95,3 +95,13 @@ main{
     cursor: pointer;
     padding: 8px 12px;
 }
+
+.product-tools{
+    margin: 20px;
+
+}
+
+.product-tools input{
+    padding: 10px;
+    width: 250px;
+}

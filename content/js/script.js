@@ -38,19 +38,26 @@
 ];
 
 const productGrid = document.getElementById("productGrid");
+ 
+function renderProducts(productList){
 
-let productCardHtml = "";
-for (const product of products) 
-    {
+    let productCardHtml = "";
+
+    for (const product of productList) {
         productCardHtml += `
        <div class="product-card">
             <h3>${product.name}</h3>
             <p>${product.category}</p>
             <p class="price">Price is ${product.price} USD</p>
             <button>view details</button>
-        </div>`
+        </div>` 
 
     }
 
     productGrid.innerHTML = productCardHtml;
+ }
 
+
+  function showProducts(){
+     renderProducts(products);  
+    }
