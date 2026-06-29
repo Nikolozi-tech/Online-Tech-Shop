@@ -1,38 +1,23 @@
-function calculateDiscountedPrice(price, discount) {
-    let discountAmount = price * discount / 100;
-    let finalPrice = price - discountAmount;
-
-    console.log(`Original Price: $${price}`);
-    console.log(`Discount: ${discount}%`);
-    console.log(`Discount Amount: $${discountAmount}`);
-    console.log(`Final Price: $${finalPrice}`);
-}
-
-//calculateDiscountedPrice(1200, 20);
-
-function showWelcomeMessage() {
-    alert("Welcome to our Online Tech Shop!");
-}
 
  const products = [
     {
-    name : "Macbook M3",
-    price : 2200,
-    category : "Laptop",
-    stock : 50,
-    isInStock : true
+        name : "Macbook M3",
+        price : 2200,
+        category : "Laptop",
+        stock : 50,
+        isInStock : true
     },
     {
-        name: "Hyperx keyboard",
+        name: "Hyperx Keyboard",
         price: 200,
-        category: "keyboard",
+        category: "Keyboard",
         stock: 100,
         isInStock: true
     },
     {
         name: "Hyperx Headset",
         price: 150,
-        category: "headset",
+        category: "Headset",
         stock: 99,
         isInStock: true
     },
@@ -52,38 +37,20 @@ function showWelcomeMessage() {
     }
 ];
 
-for(let i = 0; i < products.length;i++){
-    console.log(products[i].name);
-}
+const productGrid = document.getElementById("productGrid");
 
-function checkProductAvailability(){
-    if(products[0].stock>0){
-        console.log("Product is Available")
-    }else{
-        console.log("Product is not available")
+let productCardHtml = "";
+for (const product of products) 
+    {
+        productCardHtml += `
+       <div class="product-card">
+            <h3>${product.name}</h3>
+            <p>${product.category}</p>
+            <p class="price">Price is ${product.price} USD</p>
+            <button>view details</button>
+        </div>`
+
     }
-}
 
-checkProductAvailability();
+    productGrid.innerHTML = productCardHtml;
 
-function priceChecker() {
-    if (products[0].price > 1000) {
-        console.log("პროდუქტი ძვირია");
-    }
-}
-priceChecker();
-
-function showProductDetails(name,price,stock){
-    console.log("Product Name:" + name);
-    console.log("Product Price:" + price);
-    console.log("Product Stock:" + stock);
-}
-
-showProductDetails(productsName,productPrice,productStock);
-
-function calculateTotalPrice(price, quantity) {
-    let total = price * quantity;
-    console.log("Total Price: " + total);
-}
-
-calculateTotalPrice(productPrice, productStock);
