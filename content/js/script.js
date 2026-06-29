@@ -8,7 +8,7 @@ function calculateDiscountedPrice(price, discount) {
     console.log(`Final Price: $${finalPrice}`);
 }
 
-calculateDiscountedPrice(1200, 20);
+//calculateDiscountedPrice(1200, 20);
 
 function showWelcomeMessage() {
     alert("Welcome to our Online Tech Shop!");
@@ -16,20 +16,52 @@ function showWelcomeMessage() {
 
 
 
- let productName = "Macbook M3";
- let productPrice = 2200;
- let productCategory = "Tech";
- let productStock = 50;
- let IsinStock = productStock > 0;
+ const products = [
+    {
+    name : "Macbook M3",
+    price : 2200,
+    category : "Laptop",
+    stock : 50,
+    isInStock : true
+    },
+    {
+        Name: "Hyperx Keyboard",
+        price: 200,
+        category: "Keyboard",
+        stock: 100,
+        isInStock: true
+    },
+    {
+        Name: "Hyperx Headset",
+        price: 150,
+        category: "Headset",
+        stock: 99,
+        isInStock: true
+    },
+    {
+        Name: "Samsung Odyssey Monitor",
+        price: 350,
+        category: "Monitor",
+        stock: 35,
+        isInStock: true
+    },
+    {
+        Name: "Gaming Chair",
+        price: 400,
+        category: "Chair",
+        stock: 56,
+        isInStock: true
+    }
+];
 
-console.log(productName);
-console.log(productPrice);
-console.log(productCategory);
-console.log(productStock);
-console.log(isInStock);
+console.log(products[0].name);
+console.log(products[0].price);
+console.log(products[0].category);
+console.log(products[0].stock);
+console.log(products[0].isInStock);
 
 function checkProductAvailability(){
-    if(productStock>0){
+    if(product.stock>0){
         console.log("Product is Available")
     }else{
         console.log("Product is not available")
@@ -39,7 +71,7 @@ function checkProductAvailability(){
 checkProductAvailability();
 
 function priceChecker() {
-    if (productPrice > 1000) {
+    if (product.price > 1000) {
         console.log("პროდუქტი ძვირია");
     }
 }
