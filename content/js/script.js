@@ -22,7 +22,7 @@
         isInStock: true
     },
     {
-        name: "Samsung Odyssey Monitor",
+        name: "Samsung Odyssey",
         price: 350,
         category: "Monitor",
         stock: 35,
@@ -41,7 +41,14 @@ const productGrid = document.getElementById("productGrid");
  
 function renderProducts(productList){
 
+    const productGridId = document.getElementById("productGrid");
+
     let productCardHtml = "";
+
+    if(productList.length === 0){
+        productGridId.innerHTML = "<p>No products found</p>";
+        return;
+    }
 
     for (const product of productList) {
         productCardHtml += `
@@ -57,7 +64,33 @@ function renderProducts(productList){
     productGrid.innerHTML = productCardHtml;
  }
 
+ function showProducts(){
+    renderProducts(products);  
+}
 
-  function showProducts(){
-     renderProducts(products);  
+const searchInput = document.getElementById("searchInput");
+
+function searchProducts(searchText) {
+    const filteredProducts = [];
+
+    for (const product of products) {
+
+        const productName = product.name.toLowerCase();
+        const ProductCategory = product.category.toLowerCase();
+        const search = searchText.toLowerCase();
+
+        if (productName.includes(search) || ProductCategory.includes(search)) {
+            filteredProducts.push(product);
+        }
     }
+    return filteredProducts;
+}
+
+searchInput.addEventListener("input", function(){
+    const searchText = searchInput.value;
+
+    const filteredProducts = searchProducts(searchText);
+
+    renderProducts(filteredProducts);
+});
+
