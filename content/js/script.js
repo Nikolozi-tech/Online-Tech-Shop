@@ -94,3 +94,59 @@ searchInput.addEventListener("input", function(){
     renderProducts(filteredProducts);
 });
 
+const products = [
+  {
+    id: 1,
+    name: "Laptop",
+    price: 2500,
+    stock: 5
+  },
+  {
+    id: 2,
+    name: "Mouse",
+    price: 50,
+    stock: 20
+  },
+  {
+    id: 3,
+    name: "Keyboard",
+    price: 150,
+    stock: 0
+  },
+  {
+    id: 4,
+    name: "Monitor",
+    price: 1200,
+    stock: 3
+  },
+  {
+    id: 5,
+    name: "Headphones",
+    price: 300,
+    stock: 0
+  }
+];
+
+
+//  0 ze meti stockis produktebis mosadzebni
+function getAvailableProducts(products) {
+    const availableProducts = products.filter(product => product.stock > 0);
+
+    console.log(availableProducts);
+}
+
+getAvailableProducts(products);
+
+
+//  1000ze meti produkti rom vipoviot 
+
+function getExpensiveProducts(products) {
+    const expensiveProducts = products.filter(product => product.price > 1000);
+
+    console.log(expensiveProducts);
+}
+
+getExpensiveProducts(products);
+
+
+
