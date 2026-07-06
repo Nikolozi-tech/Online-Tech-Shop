@@ -98,10 +98,14 @@ main{
 
 .product-tools{
     margin: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 
 }
 
-.product-tools input{
+.product-tools input, 
+.product-tools select,
+ .product-tools button{
     padding: 10px;
-    width: 250px;
 }

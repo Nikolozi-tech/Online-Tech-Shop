@@ -23,8 +23,6 @@
  
 <main> 
 
-<button id="clearSearchBtn">Clear</button>
-
 <div id="productsContainer"></div>
 
 
@@ -35,12 +33,30 @@
     </section>
 
     <section class="products-section">
-        <h2>Products:</h2>
 
         <div class="product-tools">
             <input type="text" id="searchInput" placeholder="Search Products ... ">
+
+            <select id="categoryFilter">
+                <option value="All">All Categories</option>
+                <option value="Laptop">Laptops</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Storage">Storage</option>
+                <option value="Audio">Audio</option>
+                <option value="Monitors">Monitors</option>
+            </select>
+
+            <select id="priceFilter">
+                <option value="All">All Prices</option>
+                <option value="under-100">Under $100</option>
+                <option value="100-500">$100 - $500</option>
+                <option value="over-500">Over $500</option>
+            </select>
+            <button id="clearSearchBtn">Clear</button>
         </div>
 
+                <h2>Products:</h2>
         <div id="productGrid" class="product-grid">
        
         

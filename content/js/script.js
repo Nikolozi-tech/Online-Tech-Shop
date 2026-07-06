@@ -10,34 +10,39 @@
     {
         name: "Hyperx Keyboard",
         price: 200,
-        category: "Keyboard",
+        category: "Accessories",
         stock: 100,
         isInStock: true
     },
     {
         name: "Hyperx Headset",
         price: 150,
-        category: "Headset",
+        category: "Audio",
         stock: 99,
         isInStock: true
     },
     {
         name: "Samsung Odyssey",
         price: 350,
-        category: "Monitor",
+        category: "Monitors",
         stock: 35,
         isInStock: true
     },
     {
         name: "Gaming Chair",
         price: 400,
-        category: "Chair",
+        category: "Furniture",  
         stock: 56,
         isInStock: true
     }
 ];
 
 const productGrid = document.getElementById("productGrid");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const priceFilter = document.getElementById("priceFilter");
+const clearSearchBtn = document.getElementById("clearSearchBtn");
+
  
 function renderProducts(productList){
 
@@ -64,98 +69,57 @@ function renderProducts(productList){
     productGrid.innerHTML = productCardHtml;
  }
 
- function showProducts(){
-    renderProducts(products);  
-}
+function applyFilters(){
+    const searchText = searchInput.value.toLowerCase();
+    const selectedCategory = categoryFilter.value;
+    const selectedPrice = priceFilter.value;
 
-const searchInput = document.getElementById("searchInput");
-
-function searchProducts(searchText) {
     const filteredProducts = [];
 
-    for (const product of products) {
-
+    for(const product of products){
         const productName = product.name.toLowerCase();
-        const ProductCategory = product.category.toLowerCase();
-        const search = searchText.toLowerCase();
+        const productCategory = product.category;
 
-        if (productName.includes(search) || ProductCategory.includes(search)) {
+        const matchesSearch = productName.includes(searchText) ||
+        productCategory.toLowerCase().includes(searchText);
+
+        const matchesCategory =
+        selectedCategory === "All" || 
+        productCategory === selectedCategory;
+
+        const matchesPrice = matchesPriceFilter(product, selectedPrice);
+
+        if(matchesSearch && matchesCategory && matchesPrice){
             filteredProducts.push(product);
         }
     }
-    return filteredProducts;
-}
-
-searchInput.addEventListener("input", function(){
-    const searchText = searchInput.value;
-
-    const filteredProducts = searchProducts(searchText);
-
     renderProducts(filteredProducts);
-});
-
-const products = [
-  {
-    id: 1,
-    name: "Laptop",
-    price: 2500,
-    stock: 5
-  },
-  {
-    id: 2,
-    name: "Mouse",
-    price: 50,
-    stock: 20
-  },
-  {
-    id: 3,
-    name: "Keyboard",
-    price: 150,
-    stock: 0
-  },
-  {
-    id: 4,
-    name: "Monitor",
-    price: 1200,
-    stock: 3
-  },
-  {
-    id: 5,
-    name: "Headphones",
-    price: 300,
-    stock: 0
-  }
-];
-
-
-//  0 ze meti stockis produktebis mosadzebni
-function getAvailableProducts(products) {
-    const availableProducts = products.filter(product => product.stock > 0);
-
-    console.log(availableProducts);
 }
 
-getAvailableProducts(products);
-
-
-//  1000ze meti produkti rom vipoviot 
-
-function getExpensiveProducts(products) {
-    const expensiveProducts = products.filter(product => product.price > 1000);
-
-    console.log(expensiveProducts);
+function matchesPriceFilter(product, selectedPrice){
+    if(selectedPrice === "All"){
+        return true;
+    }
+    if(selectedPrice === "under-100" && product.price < 100){
+        return true;
+    }
+    if(selectedPrice === "100-500" && product.price >= 100 && product.price <= 500){
+        return true;
+    }
+    if(selectedPrice === "over-500" && product.price > 500){
+        return true;
+    }
+    return false;
 }
-
-getExpensiveProducts(products);
-
-
-const searchInput = document.getElementById("searchInput");
-const clearSearchBtn = document.getElementById("clearSearchBtn");
+searchInput.addEventListener("input", applyFilters);
+categoryFilter.addEventListener("change", applyFilters);
+priceFilter.addEventListener("change", applyFilters);
 
 clearSearchBtn.addEventListener("click", () => {
     searchInput.value = "";
+    categoryFilter.value = "All";
+    priceFilter.value = "All";
     renderProducts(products);
 });
-
 
 
