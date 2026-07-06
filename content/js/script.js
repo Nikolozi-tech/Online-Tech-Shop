@@ -149,4 +149,13 @@ function getExpensiveProducts(products) {
 getExpensiveProducts(products);
 
 
+const searchInput = document.getElementById("searchInput");
+const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+clearSearchBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    renderProducts(products);
+});
+
+
 
