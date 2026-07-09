@@ -30,11 +30,39 @@
     },
     {
         name: "Gaming Chair",
-        price: 400,
+        price: 600,
         category: "Furniture",  
         stock: 56,
         isInStock: true
-    }
+    },
+    {
+        name: "Iphone 17 Pro",
+        price: 1500,
+        category: "Phones",
+        stock: 50,
+        isInStock: true
+    },
+     {
+        name: "Razer Pro x3",
+        price: 60,
+        category: "Keyboards",
+        stock: 150,
+        isInStock: true
+    },
+     {
+        name: "Ducky one-two mini",
+        price: 500,
+        category: "Keyboards",
+        stock:20,
+        isInStock: true
+    },
+    {
+        name: "Scroll x-2",
+        price: 2500,
+        category: "Scooters",
+        stock:20,
+        isInStock: true
+    },
 ];
 
 const productGrid = document.getElementById("productGrid");
@@ -106,7 +134,13 @@ function matchesPriceFilter(product, selectedPrice){
     if(selectedPrice === "100-500" && product.price >= 100 && product.price <= 500){
         return true;
     }
-    if(selectedPrice === "over-500" && product.price > 500){
+    if(selectedPrice === "500-1000" && product.price >= 500 && product.price <= 1000){
+        return true;
+    }
+    if(selectedPrice === "over-1000" && product.price > 1000){
+        return true;
+    }
+    if(selectedPrice === "over-2000" && product.price > 2000){
         return true;
     }
     return false;
