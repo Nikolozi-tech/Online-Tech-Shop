@@ -83,7 +83,7 @@ const products = [
 ];
 
 
-// Cart example
+
 const cart = [
     {
         productId: 1,
@@ -100,7 +100,6 @@ const cart = [
 ];
 
 
-// Function that returns total quantity of products in cart
 
 function getTotalQuantity(){
 
