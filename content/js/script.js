@@ -84,22 +84,9 @@ const products = [
 
 
 
-const cart = [
-    {
-        productId: 1,
-        quantity: 2
-    },
-    {
-        productId: 3,
-        quantity: 1
-    },
-    {
-        productId: 6,
-        quantity: 3
-    }
-];
+let cart = [];
 
-
+loadCart();
 
 function getTotalQuantity(){
 
@@ -113,9 +100,6 @@ function getTotalQuantity(){
 }
 
 
-console.log("Total items in cart:", getTotalQuantity());
-
-
 
 const productGrid = document.getElementById("productGrid");
 const searchInput = document.getElementById("searchInput");
@@ -124,7 +108,6 @@ const priceFilter = document.getElementById("priceFilter");
 const clearSearchBtn = document.getElementById("clearSearchBtn");
 const productDetailsButton = document.getElementById("detailsButton");
 
- 
 function createProductCard(product){
     return `
        <div class="product-card">
@@ -319,6 +302,7 @@ function addToCart(productId){
     saveCart();
 
     console.log(cart);
+    console.log("Total items in cart:", getTotalQuantity());
 }
 
 function findCartItem(productId){
@@ -340,4 +324,10 @@ function loadCart(){
     if(savedCart !== null){
         cart = JSON.parse(savedCart);
     }
+}
+
+function clearCart(){
+    cart = [];
+    saveCart();
+    console.log("Cart cleared");
 }
