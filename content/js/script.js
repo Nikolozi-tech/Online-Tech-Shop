@@ -84,22 +84,7 @@ const products = [
 
 
 
-const cart = [
-    {
-        productId: 1,
-        quantity: 2
-    },
-    {
-        productId: 3,
-        quantity: 1
-    },
-    {
-        productId: 6,
-        quantity: 3
-    }
-];
-
-
+const cart = [];
 
 function getTotalQuantity(){
 
