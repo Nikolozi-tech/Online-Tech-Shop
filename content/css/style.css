@@ -201,3 +201,42 @@ footer {
     padding: 25px;
     margin-top: 40px;
 }
+.cart-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.cart-item{
+    border: 1px solid #000000;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.cart-item h3{
+    margin-top: 0;
+}
+
+.cart-tem-actions{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cart-summary{
+    margin-top: 20px;
+    border-top: 1px solid #000000;
+    padding-top: 15px;
+}
+
+.cart-summary button{
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}

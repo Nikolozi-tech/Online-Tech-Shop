@@ -107,6 +107,7 @@ const categoryFilter = document.getElementById("categoryFilter");
 const priceFilter = document.getElementById("priceFilter");
 const clearSearchBtn = document.getElementById("clearSearchBtn");
 const productDetailsButton = document.getElementById("detailsButton");
+const checkoutButton = document.getElementById("checkoutButton");
 
 function createProductCard(product){
     return `
@@ -288,6 +289,13 @@ function renderProductDetails(){
 renderProductDetails(); 
 
 function addToCart(productId){
+
+    const product = getProductById(productId);
+
+    if(product === null){
+        console.error("Product not found");
+        return;
+    }
     const existingCartItem = findCartItem(productId);
 
     if(existingCartItem !== null){
@@ -300,6 +308,7 @@ function addToCart(productId){
         cart.push(cartItem);
     }
     saveCart();
+    updateCartCount();
 
     console.log(cart);
     console.log("Total items in cart:", getTotalQuantity());
@@ -329,5 +338,107 @@ function loadCart(){
 function clearCart(){
     cart = [];
     saveCart();
-    console.log("Cart cleared");
+    updateCartCount();
+    renderCart();
+}
+
+function updateCartCount(){
+    const cartCount = document.getElementById("cartCount");
+    if(!cartCount){
+        return; 
+    }
+
+    cartCount.textContent = getTotalQuantity(); 
+}
+
+function renderCart(){
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal"); 
+
+    if(!cartItems || !cartTotal){
+        return; 
+    }
+
+    if(cart.length === 0){
+        cartItems.innerHTML = "<p>Your cart is empty</p>";
+        cartTotal.textContent = "0";
+        return;
+    }
+
+    let cartItemsHtml = "";
+    let totalPrice = 0;
+
+    for(const item of cart){
+        const product = getProductById(item.productId);
+
+        if(product === null){
+            continue;
+        }
+
+        const subTotal = product.price * item.quantity;
+        totalPrice += subTotal;
+
+        cartItemsHtml += `
+        <div class="cart-item">
+            <h3>${product.name}</h3>
+            <p>Price: $${product.price}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <p>Subtotal: $${subTotal}</p>
+
+            <div class="cart-item-actions">
+            <button onclick="decreaseQuantity(${product.id})">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="increaseQuantity(${product.id})">+</button>
+            <button onclick="removeFromCart(${product.id})">Remove</button>
+            </div>
+
+        </div>
+        `;
+    }
+    cartItems.innerHTML = cartItemsHtml;
+    cartTotal.textContent = totalPrice;
+}
+
+renderCart();   
+
+function increaseQuantity(productId){
+    const cartItem = findCartItem(productId);
+
+    if(cartItem === null){
+        return;
+    }
+
+    cartItem.quantity += 1;
+    saveCart();
+    updateCartCount();
+    renderCart();
+}
+
+function decreaseQuantity(productId){
+
+}
+
+function removeFromCart(productId){
+    const updatedCart = [];
+
+    for(const item of cart){
+        if(item.productId !== productId){
+            updatedCart.push(item);
+        }
+    }
+    cart = updatedCart;
+    saveCart();
+    updateCartCount();
+    renderCart();
+}
+
+if(checkoutButton){
+    checkoutButton.addEventListener("click", function () {
+    if(cart.length === 0){
+        alert("Your cart is empty. Please add items to the cart before checking out.");
+        return;
+    }
+
+    alert("ჯერ ვერ ვაჩექაუთებთ ძმა და გვაცადე პატარახანი");
+    });
 }
