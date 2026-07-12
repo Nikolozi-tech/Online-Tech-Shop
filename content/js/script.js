@@ -84,7 +84,9 @@ const products = [
 
 
 
-const cart = [];
+let cart = [];
+
+loadCart();
 
 function getTotalQuantity(){
 
@@ -98,20 +100,26 @@ function getTotalQuantity(){
 }
 
 
-console.log("Total items in cart:", getTotalQuantity());
-
-
 
 const productGrid = document.getElementById("productGrid");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
 const priceFilter = document.getElementById("priceFilter");
 const clearSearchBtn = document.getElementById("clearSearchBtn");
+const productDetailsButton = document.getElementById("detailsButton");
+const checkoutButton = document.getElementById("checkoutButton");
 
-
+function createProductCard(product){
+    return `
+       <div class="product-card">
+            <h3>${product.name}</h3>
+            <p>${product.category}</p>
+            <p class="price">Price is ${product.price} USD</p>
+            <a class="details-button" href="product-details.html?id=${product.id}">view details</a>
+        </div>`;
+}
 
 function renderProducts(productList){
-
     const productGridId = document.getElementById("productGrid");
 
     let productCardHtml = "";
@@ -122,22 +130,7 @@ function renderProducts(productList){
     }
 
     for (const product of productList) {
-
-        productCardHtml += `
-        <div class="product-card">
-
-            <h3>${product.name}</h3>
-
-            <p>${product.description}</p>
-
-            <p>${product.category}</p>
-
-            <p class="price">Price is ${product.price} USD</p>
-
-            <button>View Details</button>
-
-        </div>
-        `;
+        productCardHtml += createProductCard(product);
     }
 
     productGrid.innerHTML = productCardHtml;
@@ -145,6 +138,9 @@ function renderProducts(productList){
 
 
 
+ function showProducts(){
+    renderProducts(products)
+ }
 function applyFilters(){
 
     const searchText = searchInput.value.toLowerCase();
@@ -227,8 +223,7 @@ function matchesPriceFilter(product, selectedPrice){
     return false;
 }
 
-
-
+if(searchInput && categoryFilter && priceFilter && clearSearchBtn){
 searchInput.addEventListener("input", applyFilters);
 
 categoryFilter.addEventListener("change", applyFilters);
@@ -246,5 +241,204 @@ clearSearchBtn.addEventListener("click", () => {
     priceFilter.value = "All";
 
     renderProducts(products);
-
 });
+}
+
+function getProductById(id){
+    for (const product of products){
+        if(product.id === id){
+            return product;
+        }
+    }
+
+    return null;
+}
+
+function renderProductDetails(){
+    
+    const productDetails = document.getElementById("productDetails");
+
+    console.log(productDetails);
+    if(!productDetails){
+        return;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = Number(urlParams.get("id"));
+
+    const product = getProductById(productId);
+
+    if(product === null){
+        productDetails.innerHTML = "<p>Product not found</p>";
+        return;
+    }
+    
+    productDetails.innerHTML = `
+    <div class="product-details-card">
+        <h2>${product.name}</h2>
+        <p>Category: ${product.category}</p>
+        <p>${product.description}</p>
+        <p class="price">Price: ${product.price} USD</p>
+        <p>In Stock: ${product.isInStock ? "Yes" : "No"}</p>
+        <p>Stock: ${product.stock}</p>
+        <button onclick="addToCart(${product.id})">Add to Cart</button>
+    </div>
+    `;
+}
+
+renderProductDetails(); 
+
+function addToCart(productId){
+
+    const product = getProductById(productId);
+
+    if(product === null){
+        console.error("Product not found");
+        return;
+    }
+    const existingCartItem = findCartItem(productId);
+
+    if(existingCartItem !== null){
+        existingCartItem.quantity += 1;
+    }else{
+        const cartItem = {
+            productId: productId,
+            quantity: 1
+        };
+        cart.push(cartItem);
+    }
+    saveCart();
+    updateCartCount();
+
+    console.log(cart);
+    console.log("Total items in cart:", getTotalQuantity());
+}
+
+function findCartItem(productId){
+    for(const item of cart){
+        if(item.productId === productId){
+            return item;
+        }
+    }
+    return null;    
+}
+
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function loadCart(){
+    const savedCart = localStorage.getItem("cart");
+
+    if(savedCart !== null){
+        cart = JSON.parse(savedCart);
+    }
+}
+
+function clearCart(){
+    cart = [];
+    saveCart();
+    updateCartCount();
+    renderCart();
+}
+
+function updateCartCount(){
+    const cartCount = document.getElementById("cartCount");
+    if(!cartCount){
+        return; 
+    }
+
+    cartCount.textContent = getTotalQuantity(); 
+}
+
+function renderCart(){
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal"); 
+
+    if(!cartItems || !cartTotal){
+        return; 
+    }
+
+    if(cart.length === 0){
+        cartItems.innerHTML = "<p>Your cart is empty</p>";
+        cartTotal.textContent = "0";
+        return;
+    }
+
+    let cartItemsHtml = "";
+    let totalPrice = 0;
+
+    for(const item of cart){
+        const product = getProductById(item.productId);
+
+        if(product === null){
+            continue;
+        }
+
+        const subTotal = product.price * item.quantity;
+        totalPrice += subTotal;
+
+        cartItemsHtml += `
+        <div class="cart-item">
+            <h3>${product.name}</h3>
+            <p>Price: $${product.price}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <p>Subtotal: $${subTotal}</p>
+
+            <div class="cart-item-actions">
+            <button onclick="decreaseQuantity(${product.id})">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="increaseQuantity(${product.id})">+</button>
+            <button onclick="removeFromCart(${product.id})">Remove</button>
+            </div>
+
+        </div>
+        `;
+    }
+    cartItems.innerHTML = cartItemsHtml;
+    cartTotal.textContent = totalPrice;
+}
+
+renderCart();   
+
+function increaseQuantity(productId){
+    const cartItem = findCartItem(productId);
+
+    if(cartItem === null){
+        return;
+    }
+
+    cartItem.quantity += 1;
+    saveCart();
+    updateCartCount();
+    renderCart();
+}
+
+function decreaseQuantity(productId){
+
+}
+
+function removeFromCart(productId){
+    const updatedCart = [];
+
+    for(const item of cart){
+        if(item.productId !== productId){
+            updatedCart.push(item);
+        }
+    }
+    cart = updatedCart;
+    saveCart();
+    updateCartCount();
+    renderCart();
+}
+
+if(checkoutButton){
+    checkoutButton.addEventListener("click", function () {
+    if(cart.length === 0){
+        alert("Your cart is empty. Please add items to the cart before checking out.");
+        return;
+    }
+
+    alert("ჯერ ვერ ვაჩექაუთებთ ძმა და გვაცადე პატარახანი");
+    });
+}
