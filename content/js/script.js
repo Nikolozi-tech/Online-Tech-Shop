@@ -87,6 +87,7 @@ const products = [
 let cart = [];
 
 loadCart();
+updateCartCount();
 
 function getTotalQuantity(){
 
@@ -402,8 +403,6 @@ function renderCart(){
     }
     cartItems.innerHTML = cartItemsHtml;
     cartTotal.textContent = totalPrice;
-
-    UpdateCartCount();
 }
 
 renderCart();   
@@ -457,8 +456,9 @@ function removeFromCart(productId){
 if(checkoutButton){
     checkoutButton.addEventListener("click", function () {
     if(cart.length === 0){
-        alert("Your cart is empty. Please add items to the cart before checking out.");
-        return;
+        checkoutButton.disabled = true; 
+    }else{
+        checkoutButton.disabled = false; 
     }
 
     alert("ჯერ ვერ ვაჩექაუთებთ ძმა და გვაცადე პატარახანი");
