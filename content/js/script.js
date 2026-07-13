@@ -6,7 +6,7 @@ const products = [
         price: 2200,
         category: "Laptop",
         stock: 50,
-        isInStock: true
+        isInStock: false
     },
     {
         id: 2,
@@ -283,6 +283,7 @@ function renderProductDetails(){
         <p>In Stock: ${product.isInStock ? "Yes" : "No"}</p>
         <p>Stock: ${product.stock}</p>
         <button onclick="addToCart(${product.id})">Add to Cart</button>
+        <p id="cartMessage"></p>
     </div>
     `;
 }
@@ -297,6 +298,10 @@ function addToCart(productId){
         console.error("Product not found");
         return;
     }
+    if(!product.isInStock){
+        showCartMessage("Product is out of stock!");
+        return;
+    }
     const existingCartItem = findCartItem(productId);
 
     if(existingCartItem !== null){
@@ -309,6 +314,7 @@ function addToCart(productId){
         cart.push(cartItem);
     }
     saveCart();
+    showCartMessage("Product added to cart!");
     updateCartCount();
 
     console.log(cart);
@@ -335,7 +341,7 @@ function loadCart(){
         cart = JSON.parse(savedCart);
     }
 
-    
+
 }
 
 function clearCart(){
@@ -464,3 +470,11 @@ if(checkoutButton){
     alert("ჯერ ვერ ვაჩექაუთებთ ძმა და გვაცადე პატარახანი");
     });
 }
+
+function showCartMessage(message){
+        const cartMessage = document.getElementById("cartMessage");
+        if(!cartMessage){
+            return;
+        }
+        cartMessage.textContent = message;
+    }
