@@ -316,9 +316,8 @@ function addToCart(productId){
     saveCart();
     showCartMessage("Product added to cart!");
     updateCartCount();
+    updateCheckoutButton();
 
-    console.log(cart);
-    console.log("Total items in cart:", getTotalQuantity());
 }
 
 function findCartItem(productId){
@@ -349,6 +348,7 @@ function clearCart(){
     saveCart();
     updateCartCount();
     renderCart();
+    updateCheckoutButton();
 }
     const clearCartButton = document.getElementById("clearCartButton");
     clearCartButton.addEventListener("click", clearCart);
@@ -409,6 +409,8 @@ function renderCart(){
     }
     cartItems.innerHTML = cartItemsHtml;
     cartTotal.textContent = totalPrice;
+
+    updateCheckoutButton();
 }
 
 renderCart();   
@@ -457,16 +459,21 @@ function removeFromCart(productId){
     saveCart();
     updateCartCount();
     renderCart();
+    updateCheckoutButton();
 }
 
-if(checkoutButton){
-    checkoutButton.addEventListener("click", function () {
+function updateCheckoutButton(){
+    if(!checkoutButton){
+        return; 
+    }
     if(cart.length === 0){
         checkoutButton.disabled = true; 
     }else{
         checkoutButton.disabled = false; 
     }
-
+}
+if(checkoutButton.disabled){
+    checkoutButton.addEventListener("click", function () {
     alert("ჯერ ვერ ვაჩექაუთებთ ძმა და გვაცადე პატარახანი");
     });
 }
