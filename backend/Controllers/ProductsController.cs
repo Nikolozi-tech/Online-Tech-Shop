@@ -42,7 +42,7 @@ namespace OnlineTechShop.Api.Controllers
         };
 
         [HttpGet]
-        public ActionResult<List<Product>> GetAllProduct()
+        public ActionResult<List<Product>> GetAllProducts()
         {
             return Ok(Products);
         }
