@@ -1,0 +1,4 @@
+wwwroot\css\style.css
+wwwroot\js\script.js
+C:\Users\t.khaburdzania\source\repos\Online-Tech-Shop\backend\wwwroot\css\style.css
+C:\Users\t.khaburdzania\source\repos\Online-Tech-Shop\backend\wwwroot\js\script.js

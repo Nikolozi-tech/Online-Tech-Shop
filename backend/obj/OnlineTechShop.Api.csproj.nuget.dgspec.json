@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\OnlineTechShop.Api.csproj": {}
+    "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\OnlineTechShop.Api.csproj": {
+    "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\OnlineTechShop.Api.csproj",
+        "projectUniqueName": "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj",
         "projectName": "OnlineTechShop.Api",
-        "projectPath": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\OnlineTechShop.Api.csproj",
+        "projectPath": "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj",
         "packagesPath": "C:\\Users\\t.khaburdzania\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\obj\\",
+        "outputPath": "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,9 +53,9 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[10.0.10, )"
+              "version": "[10.2.3, )"
             }
           },
           "imports": [

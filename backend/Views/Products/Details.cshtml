@@ -1,0 +1,17 @@
+@model Product
+@using System.Text.Json
+@{
+    ViewData["Title"] = Model.ProductName;
+}
+
+<section class="product-details-section">
+    <a asp-controller="Home" asp-action="Index" class="back-button">Back to Products</a>
+    <div id="productDetails"></div>
+</section>
+
+@section Scripts {
+    <script>
+        window.shopProducts = @Html.Raw(JsonSerializer.Serialize(new[] { Model }, new JsonSerializerOptions(JsonSerializerDefaults.Web)));
+    </script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+}

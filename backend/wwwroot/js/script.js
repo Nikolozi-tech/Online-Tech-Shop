@@ -1,4 +1,4 @@
-const products = [
+const fallbackProducts = [
     {
         id: 1,
         name: "Macbook M3",
@@ -82,6 +82,8 @@ const products = [
     }
 ];
 
+const products = window.shopProducts ?? fallbackProducts;
+
 
 
 let cart = [];
@@ -116,7 +118,7 @@ function createProductCard(product){
             <h3>${product.name}</h3>
             <p>${product.category}</p>
             <p class="price">Price is ${product.price} USD</p>
-            <a class="details-button" href="product-details.html?id=${product.id}">view details</a>
+            <a class="details-button" href="/Products/Details?id=${product.id}">view details</a>
         </div>`;
 }
 
@@ -350,8 +352,10 @@ function clearCart(){
     renderCart();
     updateCheckoutButton();
 }
-    const clearCartButton = document.getElementById("clearCartButton");
+const clearCartButton = document.getElementById("clearCartButton");
+if(clearCartButton){
     clearCartButton.addEventListener("click", clearCart);
+}
 
 
 function updateCartCount(){

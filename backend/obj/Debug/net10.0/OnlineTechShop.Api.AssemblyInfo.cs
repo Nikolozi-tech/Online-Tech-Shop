@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineTechShop.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c9c91663c11b5d85a8561450f5f349a8111c03e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48aa095540c893a4226572d94083180a40c7575d")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineTechShop.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineTechShop.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

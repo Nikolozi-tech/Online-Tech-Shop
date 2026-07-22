@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\content"
+    "\\backend",
+    "\\backend\\Controllers",
+    "\\backend\\Models",
+    "\\backend\\Service",
+    "\\backend\\Services",
+    "\\backend\\Views",
+    "\\backend\\Views\\Cart",
+    "\\backend\\Views\\Home",
+    "\\backend\\Views\\Shared"
   ],
+  "SelectedNode": "\\backend\\Views\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }

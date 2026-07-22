@@ -1,0 +1,58 @@
+@model IReadOnlyList<Product>
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section>
+    <h1>Welcome to the Best Tech Shop</h1>
+    <p>This is one of the largest tech shops in the world. You can find modern technology here at great prices.</p>
+</section>
+
+<div id="productsContainer"></div>
+
+<section class="hero">
+    <h2>Welcome To our Online Tech Shop</h2>
+    <p>Find laptops, phones and more.</p>
+    <button onclick="showProducts()">Shop now</button>
+</section>
+
+<section class="products-section">
+    <div class="product-tools">
+        <input type="text" id="searchInput" placeholder="Search products ..." />
+
+        <select id="categoryFilter">
+            <option value="All">All Categories</option>
+            <option value="Laptop">Laptops</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Storage">Storage</option>
+            <option value="Audio">Audio</option>
+            <option value="Monitors">Monitors</option>
+            <option value="Phones">Phones</option>
+            <option value="Keyboards">Keyboards</option>
+            <option value="Scooters">Scooters</option>
+        </select>
+
+        <select id="priceFilter">
+            <option value="All">All Prices</option>
+            <option value="under-100">Under $100</option>
+            <option value="100-500">$100 - $500</option>
+            <option value="500-1000">$500 - $1000</option>
+            <option value="over-1000">Over $1000</option>
+            <option value="over-2000">Over $2000</option>
+        </select>
+
+        <button id="clearSearchBtn">Clear</button>
+    </div>
+
+    <h2>Products:</h2>
+    <div id="productGrid" class="product-grid"></div>
+</section>
+
+@section Scripts {
+    <script>
+        window.shopProducts = @Html.Raw(JsonSerializer.Serialize(Model, new JsonSerializerOptions(JsonSerializerDefaults.Web)));
+    </script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+}
