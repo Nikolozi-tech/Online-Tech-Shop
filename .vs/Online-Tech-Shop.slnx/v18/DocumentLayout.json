@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|solutionrelative:backend\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|c:\\users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|solutionrelative:backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|c:\\users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\services\\productsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|solutionrelative:backend\\services\\productsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|c:\\users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|c:\\users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\wwwroot\\js\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -20,10 +24,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|c:\\users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\onlinetechshop.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|solutionrelative:backend\\onlinetechshop.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|c:\\users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BF2E3305-EFA1-DE4F-2D3F-A6296E85643C}|backend\\OnlineTechShop.Api.csproj|c:\\users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -57,7 +57,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1194,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -113,33 +113,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductsService.cs",
+              "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Services\\ProductsService.cs",
+              "RelativeDocumentMoniker": "backend\\Services\\ProductsService.cs",
+              "ToolTip": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Services\\ProductsService.cs",
+              "RelativeToolTip": "backend\\Services\\ProductsService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAmwDkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T15:31:09.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\ProductsController.cs",
               "ToolTip": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Controllers\\ProductsController.cs",
               "RelativeToolTip": "backend\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwDEAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwCoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-22T17:26:36.659Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OnlineTechShop.Api.csproj",
-              "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj",
-              "RelativeDocumentMoniker": "backend\\OnlineTechShop.Api.csproj",
-              "ToolTip": "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj",
-              "RelativeToolTip": "backend\\OnlineTechShop.Api.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-07-22T17:18:20.347Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "script.js",
               "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\wwwroot\\js\\script.js",
               "RelativeDocumentMoniker": "backend\\wwwroot\\js\\script.js",
@@ -147,8 +147,7 @@
               "RelativeToolTip": "backend\\wwwroot\\js\\script.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-07-22T17:34:28.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-22T17:34:28.77Z"
             },
             {
               "$type": "Document",
@@ -176,20 +175,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "backend\\Models\\Product.cs",
-              "ToolTip": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Models\\Product.cs",
-              "RelativeToolTip": "backend\\Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "backend\\Program.cs",
+              "ToolTip": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Program.cs",
+              "RelativeToolTip": "backend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-22T17:08:28.492Z",
+              "WhenOpened": "2026-07-22T15:57:35.062Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
+              "Title": "OnlineTechShop.Api.csproj",
+              "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj",
+              "RelativeDocumentMoniker": "backend\\OnlineTechShop.Api.csproj",
+              "ToolTip": "C:\\Users\\t.khaburdzania\\source\\repos\\Online-Tech-Shop\\backend\\OnlineTechShop.Api.csproj",
+              "RelativeToolTip": "backend\\OnlineTechShop.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-07-22T17:18:20.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -197,8 +208,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAAkVAAAAAAAAAAAkwBcVAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-07-22T17:22:21.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-22T17:22:21.432Z"
             },
             {
               "$type": "Document",
@@ -223,18 +233,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-22T16:17:46.394Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Program.cs",
-              "RelativeDocumentMoniker": "backend\\Program.cs",
-              "ToolTip": "C:\\Users\\t.khaburdzania\\source\\repos\\online-tech-shop\\backend\\Program.cs",
-              "RelativeToolTip": "backend\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-22T15:57:35.062Z"
             },
             {
               "$type": "Document",

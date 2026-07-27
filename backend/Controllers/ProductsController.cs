@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineTechShop.Api.Models;
+using OnlineTechShop.Api.Services;
 
 namespace OnlineTechShop.Api.Controllers
 {
@@ -7,56 +8,41 @@ namespace OnlineTechShop.Api.Controllers
     [Route("api/[controller]")] 
     public class ProductsController : ControllerBase
     {
-        private static readonly List<Product> Products = new List<Product>
+
+        private readonly ProductsService _productsService;
+
+        public ProductsController(ProductsService productsService)
         {
-            new Product
-            {
-                Id = 1,
-                ProductName = "Macbook M3",
-                Description = "Powerful Apple laptop with M3 chip",
-                Price = 2200m,
-                Category = "Laptops",
-                Stock = 100,
-                IsInStock = true
-            },
-            new Product
-            {
-                Id = 2,
-                ProductName = "Hyperx Keyboard",
-                Description = "Mechanical gaming keyboard with RGB lighting",
-                Price = 150m,
-                Category = "Accessories",
-                Stock = 200,
-                IsInStock = true
-            },
-            new Product
-            {
-                Id = 3,
-                ProductName = "Hyperx Headset",
-                Description = "High-quality gaming headset with surround sound",
-                Price = 100m,
-                Category = "Accessories",
-                Stock = 150,
-                IsInStock = true
-            },
-        };
+            _productsService = productsService;
+        }
 
         [HttpGet]
         public ActionResult<List<Product>> GetAllProducts()
         {
-            return Ok(Products);
+            return Ok(_productsService.GetAll());
         }
 
         [HttpGet("{id}")]
         public ActionResult<Product> GetProductById(int id)
         {
-            Product? product = Products.FirstOrDefault(p => p.Id == id);
+            Product? product = _productsService.GetProductById(id);
 
             if(product == null)
             {
                 return NotFound();
             }
             return Ok(product);
+        }
+
+        [HttpGet("search")]
+        public ActionResult<List<Product>> SearchProducts([FromQuery] string search)
+        {
+            List<Product> products = _productsService.Search(search);
+            if(products.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(products);
         }
     }
 }

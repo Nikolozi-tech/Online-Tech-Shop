@@ -1,8 +1,11 @@
+using OnlineTechShop.Api.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<ProductsService>();
 
 var app = builder.Build();
 
